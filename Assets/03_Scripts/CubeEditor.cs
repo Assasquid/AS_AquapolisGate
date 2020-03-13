@@ -7,7 +7,7 @@ using UnityEngine;
 [RequireComponent(typeof(Waypoint))]
 
 public class CubeEditor : MonoBehaviour
-{
+{   
     Waypoint waypoint;
 
     void Awake()
