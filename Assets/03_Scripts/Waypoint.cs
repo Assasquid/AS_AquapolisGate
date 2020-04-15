@@ -11,6 +11,7 @@ public class Waypoint : MonoBehaviour
     public Waypoint exploredFrom;
     
     //Vector2Int gridPos; --> remove later if unused
+    
     const int gridSize = 10;
 
     public int GetGridSize()
@@ -26,22 +27,8 @@ public class Waypoint : MonoBehaviour
         );
     }
 
-    public void SetTopColor(Color color)
-    {  
-        MeshRenderer topMeshRenderer = transform.Find("Top").GetComponent<MeshRenderer>();            
-        topMeshRenderer.material.color = color;
-    }
-
-    /*void Update()
+    void OnMouseOver()
     {
-        if (isExplored = true)
-        {
-            SetTopColor(exploredColor);
-        }
-        else 
-        { 
-            // do nothing
-        }
-        
-    }*/
+        Debug.Log(gameObject.name);
+    }
 }
