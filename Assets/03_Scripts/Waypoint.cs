@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,9 +11,11 @@ public class Waypoint : MonoBehaviour
     public bool isExplored = false;
     public Waypoint exploredFrom;
     public bool isPlaceable = true;
-    
+
     //Vector2Int gridPos; --> remove later if unused
-    
+
+    [SerializeField] Tower towerPrefab;
+
     const int gridSize = 10;
 
     public int GetGridSize()
@@ -34,7 +37,8 @@ public class Waypoint : MonoBehaviour
         {
             if (isPlaceable) 
             {
-                Debug.Log("Placing tower at " + gameObject.name);
+                Instantiate(towerPrefab, transform.position, Quaternion.identity);
+                isPlaceable = false;
             }
             else
             {
