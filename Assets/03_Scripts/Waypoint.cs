@@ -9,6 +9,7 @@ public class Waypoint : MonoBehaviour
     // public ok here as is a data class
     public bool isExplored = false;
     public Waypoint exploredFrom;
+    public bool isPlaceable = true;
     
     //Vector2Int gridPos; --> remove later if unused
     
@@ -29,6 +30,16 @@ public class Waypoint : MonoBehaviour
 
     void OnMouseOver()
     {
-        Debug.Log(gameObject.name);
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (isPlaceable) 
+            {
+                Debug.Log("Placing tower at " + gameObject.name);
+            }
+            else
+            {
+                Debug.Log("Not available !");
+            }
+        }
     }
 }
