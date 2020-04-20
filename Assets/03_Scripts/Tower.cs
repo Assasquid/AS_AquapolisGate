@@ -8,7 +8,7 @@ public class Tower : MonoBehaviour
 {
     // Parameters of each tower
     [SerializeField] Transform objectToPan;
-    [SerializeField] float attackRange = 30f;
+    [SerializeField] float attackRange = 40f;
     [SerializeField] ParticleSystem projectileParticle;
 
     // State of each tower
