@@ -5,16 +5,11 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
-    // [SerializeField] Color exploredColor;
     
     // public ok here as is a data class
     public bool isExplored = false;
     public Waypoint exploredFrom;
     public bool isPlaceable = true;
-
-    //Vector2Int gridPos; --> remove later if unused
-
-    [SerializeField] Tower towerPrefab;
 
     const int gridSize = 10;
 
@@ -37,12 +32,11 @@ public class Waypoint : MonoBehaviour
         {
             if (isPlaceable) 
             {
-                Instantiate(towerPrefab, transform.position, Quaternion.identity);
-                isPlaceable = false;
+                FindObjectOfType<TowerFactory>().AddTower(this);
             }
             else
             {
-                Debug.Log("Not available !");
+                Debug.Log("Can't place here !");
             }
         }
     }
