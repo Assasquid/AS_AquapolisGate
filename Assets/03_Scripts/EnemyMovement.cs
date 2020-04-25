@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+    [SerializeField] float movementPeriod = .5f;
+    [SerializeField] ParticleSystem kamikazeEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,8 +21,16 @@ public class EnemyMovement : MonoBehaviour
         foreach (Waypoint waypoint in path)
         {
             transform.position = waypoint.transform.position;
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(movementPeriod);
         }
-        print("Ending Patrol !");
+
+        SelfDestruct();
+    }
+
+    private void SelfDestruct()
+    {
+        var vfx = Instantiate(kamikazeEffect, transform.position, Quaternion.identity);
+        vfx.Play();
+        Destroy(gameObject);
     }
 }
