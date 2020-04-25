@@ -2127,6 +2127,7 @@ MonoBehaviour:
   secondsBetweenSpawns: 4
   enemyPrefab: {fileID: 4161633450273500917, guid: 04f81ff9814844ccfa08226f8d46a3f4,
     type: 3}
+  enemyParentTransform: {fileID: 612100576}
 --- !u!1001 &672925563
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4262,6 +4263,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxNumbTowers: 5
   towerPrefab: {fileID: 629372495, guid: 8d46c1c9cd641fa4f968cebd7ac070c9, type: 3}
+  towerParentTransform: {fileID: 1991490167}
 --- !u!1001 &1158542297
 PrefabInstance:
   m_ObjectHideFlags: 0

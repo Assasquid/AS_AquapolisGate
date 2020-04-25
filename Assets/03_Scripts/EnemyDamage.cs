@@ -8,12 +8,6 @@ public class EnemyDamage : MonoBehaviour
     [SerializeField] ParticleSystem hitEffect;
     [SerializeField] ParticleSystem explosionEffect;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     private void OnParticleCollision(GameObject other)
     {
         ProcessHit();
@@ -33,6 +27,10 @@ public class EnemyDamage : MonoBehaviour
     {
         var vfx = Instantiate(explosionEffect, transform.position, Quaternion.identity);
         vfx.Play();
+        
+        // float destroyDelay = vfx.main.duration; -> not used because particle system set to destroy itself when done
+        // Destroy(vfx.gameObject, vfx.main.duration); -> same as above
+        
         Destroy(gameObject);
     }
 
