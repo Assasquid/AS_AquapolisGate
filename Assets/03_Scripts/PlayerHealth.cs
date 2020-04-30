@@ -1,18 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] int playerHealth = 20;
+    [SerializeField] int baseHealth = 20;
     [SerializeField] int heatlhDecrease = 1;
     [SerializeField] ParticleSystem baseDestroyed;
     public bool isAlive = true;
+    
+    [SerializeField] TextMeshProUGUI baseHealthText;
 
+    void Start()
+    {
+        baseHealthText.text = baseHealth.ToString();
+    }
+    
     private void OnTriggerEnter(Collider other)
     {
         ProcessDamage();
-        if (playerHealth <= 0)
+        if (baseHealth <= 0)
         {
             isAlive = false;
             DestroyBase();
@@ -30,6 +39,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void ProcessDamage()
     {
-        playerHealth = playerHealth - heatlhDecrease;
+        baseHealth -= heatlhDecrease; // playerHealth -= playerHealth - heatlhDecrease;
+        baseHealthText.text = baseHealth.ToString();
     }
 }
