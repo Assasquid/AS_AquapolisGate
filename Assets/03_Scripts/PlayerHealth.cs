@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour
     
     [SerializeField] TextMeshProUGUI baseHealthText;
 
+    [SerializeField] AudioClip baseDestroyedSFX;
+
     void Start()
     {
         baseHealthText.text = baseHealth.ToString();
@@ -33,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
         transform.position = new Vector3(transform.position.x, 10f, transform.position.z);
         var vfx = Instantiate(baseDestroyed, transform.position, Quaternion.identity);
         vfx.Play();
+        AudioSource.PlayClipAtPoint(baseDestroyedSFX, Camera.main.transform.position);
 
         Destroy(gameObject);
     }

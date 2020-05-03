@@ -7,6 +7,8 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] float movementPeriod = .5f;
     [SerializeField] ParticleSystem kamikazeEffect;
 
+    [SerializeField] AudioClip enemyAttackSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +33,8 @@ public class EnemyMovement : MonoBehaviour
     {
         var vfx = Instantiate(kamikazeEffect, transform.position, Quaternion.identity);
         vfx.Play();
+        AudioSource.PlayClipAtPoint(enemyAttackSFX, Camera.main.transform.position);
+
         Destroy(gameObject);
     }
 }
